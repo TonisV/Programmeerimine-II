@@ -1,0 +1,22 @@
+{
+  "name": "tv-app",
+  "version": "1.0.0",
+  "description": "Programmeerimine II - praktikum",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TonisV/Programmeerimine-II.git"
+  },
+  "author": "Tõnis Vaimann RIF16",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TonisV/Programmeerimine-II/issues"
+  },
+  "homepage": "https://github.com/TonisV/Programmeerimine-II#readme",
+  "dependencies": {
+    "express": "^4.16.1"
+  }
+}
