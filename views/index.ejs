@@ -1,0 +1,16 @@
+<% include partials/header %>
+        <div class="container">
+            <h1><%= pageTitle %></h1>
+            <ul>
+                <% for (var i = 0; i < articles.length; i++) { %>
+                <li>
+                    <article>
+                        <h2 class="article-title"><%= articles[i].title %></h2>
+                        <div class="article-author"><%= articles[i].author %></div>
+                        <div class="article-content"><%= articles[i].body %></div>
+                    </article>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+<% include partials/footer %>
