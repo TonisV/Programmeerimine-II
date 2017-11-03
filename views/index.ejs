@@ -1,16 +1,12 @@
 <% include partials/header %>
-        <div class="container">
-            <h1>Articles</h1>
-            <ul>
-                <% for (var i = 0; i < articles.length; i++) { %>
-                <li>
-                    <article>
-                        <h2 class="article-title"><%= articles[i].title %></h2>
-                        <div class="article-author"><%= articles[i].author %></div>
-                        <div class="article-content"><%= articles[i].body %></div>
-                    </article>
-                </li>
-                <% } %>
-            </ul>
-        </div>
+    <h1>Articles</h1>
+    <hr>
+    <ul class="list-group">
+        <% for (var i = 0; i < articles.length; i++) { %>
+        <li class="list-group-item">
+            <a href="/article/<%= articles[i].id %>" ><%= articles[i].title %></a>
+        </li>
+        <% } %>
+    </ul>
 <% include partials/footer %>
+

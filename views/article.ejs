@@ -1,0 +1,9 @@
+<% include partials/header %>
+<article>
+    <h2><%= article.title %></h2>
+    <p>Author - <%= article.author %></p>
+    <div><%= article.body %></div>
+    <br>
+    <a href="/article/edit/<%= article.id %>" class="btn btn-secondary">Edit</a>
+</article>
+<% include partials/footer %>
