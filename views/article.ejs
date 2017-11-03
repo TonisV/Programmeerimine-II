@@ -5,5 +5,6 @@
     <div><%= article.body %></div>
     <br>
     <a href="/article/edit/<%= article.id %>" class="btn btn-secondary">Edit</a>
+    <a href="#" class="btn btn-danger delete-article" data-id="<%= article.id %>">Delete</a>
 </article>
 <% include partials/footer %>
