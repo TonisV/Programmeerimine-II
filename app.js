@@ -1,8 +1,25 @@
 const express = require('express');
 const path = require('path');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/nodekb');
+let db = mongoose.connection;
+
+// Check connection
+db.once('open', function(){
+    console.log('Connected to MongoDB');
+});
+
+// Check for DB errors
+db.on('error', function(err){
+    console.log(err);
+});
 
 // Init App
 const app = express();
+
+// Bring in Models
+let Article = require('./models/article');
 
 // Load View Engine
 app.set('views', path.join(__dirname, 'views'));
@@ -10,37 +27,20 @@ app.set('view engine', 'ejs');
 
 // Home Route
 app.get('/', function(req, res){
-    let articles = [
-        {
-            id: 1,
-            title: 'Article One',
-            author: 'Tõnis Vaimann',
-            body: 'This is article one'
-        },
-        {
-            id: 2,
-            title: 'Article Two',
-            author: 'Tõnis Vaimann',
-            body: 'This is article Two'
-        },
-        {
-            id: 3,
-            title: 'Article Three',
-            author: 'Tõnis Vaimann',
-            body: 'This is article Three'
+    Article.find({}, function(err, articles){
+        if(err){
+            console.log(err);
+        }else {
+            res.render('index', {
+                articles: articles
+            });
         }
-    ];
-    res.render('index', {
-        pageTitle: 'Articles',
-        articles: articles
     });
 });
 
 // Add Route
 app.get('/articles/add', function(req, res) {
-    res.render('add_article', {
-        pageTitle: 'Add Article'
-    });
+    res.render('add_article', {});
 });
 
 // Start Server
